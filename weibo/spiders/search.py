@@ -627,6 +627,22 @@ class SearchSpider(scrapy.Spider):
                         weibo['user_authentication'] = '金V'
                     else:
                         weibo['user_authentication'] = '普通用户'
+
+                mid = weibo['id']
+                # 调用微博移动端API获取用户详情JSON（使用mid）
+                user_url = f"https://m.weibo.cn/statuses/show?id={mid}"
+                resp = requests.get(user_url, headers=self.settings.get('DEFAULT_REQUEST_HEADERS'))
+                VERIFIED = {-1:"普通用户",0:"名人",1:"政府",2:"企业",3:"媒体",4:"校园",5:"网站",6:"应用",7:"团体（机构）"}
+                GENDER = {"m":"男","f":"女"}
+                if resp.status_code == 200:
+                    user_json = resp.json()
+                    user_data = user_json.get('data', {}).get('user', {}) or {}
+                    weibo['gender'] = GENDER.get(user_data.get("gender"))
+                    weibo['verified_type'] = VERIFIED.get(user_data.get("verified_type"))
+                    weibo['verified_reason'] = user_data.get("verified_reason") or "0"
+                    weibo['followers_count'] = user_data.get("followers_count")
+                    weibo['statuses_count'] = user_data.get("statuses_count")
+
                 print(weibo)
 
                 # 增加结果计数（主微博）
