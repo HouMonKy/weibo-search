@@ -48,13 +48,12 @@ class CsvPipeline(object):
                     item['weibo'].get('bid', ''),
                     item['weibo'].get('user_id', ''),
                     item['weibo'].get('screen_name', ''),
-                    # 新增 ↓↓↓↓↓
                     item['weibo'].get('gender', ''),
+                    item['weibo'].get('user_authentication', ''),
                     item['weibo'].get('verified_type', ''),
                     item['weibo'].get('verified_reason', ''),
                     item['weibo'].get('followers_count', ''),
                     item['weibo'].get('statuses_count', ''),
-                    # 新增 ↑↑↑↑↑
                     item['weibo'].get('text', ''),
                     item['weibo'].get('article_url', ''),
                     item['weibo'].get('location', ''),
@@ -69,7 +68,6 @@ class CsvPipeline(object):
                     item['weibo'].get('video_url', ''),
                     item['weibo'].get('retweet_id', ''),
                     item['weibo'].get('ip', ''),
-                    item['weibo'].get('user_authentication', ''),
                     item['weibo'].get('vip_type', ''),
                     item['weibo'].get('vip_level', 0)
         ])
