@@ -12,7 +12,7 @@ DEFAULT_REQUEST_HEADERS = {
     'Accept':
     'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
-    'cookie': 'your_cookie_here',
+    'cookie': 'SINAGLOBAL=8744986399259.968.1752026091593; SCF=AoXn-mvGudt26muAxumDMp7jjtJZTA0dFWXk2MvZ3uB627yJa_JKwjS8l72fjNq4Mww4MBBeVjFQqSdtqkOYMSc.; XSRF-TOKEN=v1GC5Bm7v7tsOiCwkLKh55Ci; _s_tentry=-; Apache=2158934394575.0183.1752111142580; ULV=1752111142581:2:2:2:2158934394575.0183.1752111142580:1752026091599; UOR=,,colab.research.google.com; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9Wh8VWEbVhlygunoAakRqpfd5JpX5KzhUgL.Fon7ehMNeKBRShz2dJLoIp7LxKML1KBLBKnLxKqL1hnLBoMReh5NS02X1hBE; SUB=_2A25Fa2vqDeRhGe5O61UW8SrEzz6IHXVmCeEirDV8PUNbmtAbLVjGkW9NdbwG0ziEoNkbT7xGZReOIlv6dS5U6j7p; ALF=02_1754704058; WBPSESS=DnO9X6brKQZMMQSsb-c8LQFwlAIyXMo8jHhfCxxwgF2bB2EPVvuKwWkeC6o_WBAMxdsJIRS6xqAoY5B-2HUpvRWAvYeRr49GU8l5KL9vk3ZqWc-3KuxxZrBRA1lQesw3vWW5dUsxffgelT0j2tT9nw==',
 }
 ITEM_PIPELINES = {
     'weibo.pipelines.DuplicatesPipeline': 300,
