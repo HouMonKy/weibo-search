@@ -8,11 +8,19 @@ TELNETCONSOLE_ENABLED = False
 LOG_LEVEL = 'ERROR'
 # 访问完一个页面再访问下一个时需要等待的时间，默认为10秒
 DOWNLOAD_DELAY = 10
+# 详情搜索设置
 DEFAULT_REQUEST_HEADERS = {
     'Accept':
     'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
     'cookie': 'SINAGLOBAL=8744986399259.968.1752026091593; SCF=AoXn-mvGudt26muAxumDMp7jjtJZTA0dFWXk2MvZ3uB627yJa_JKwjS8l72fjNq4Mww4MBBeVjFQqSdtqkOYMSc.; XSRF-TOKEN=v1GC5Bm7v7tsOiCwkLKh55Ci; _s_tentry=-; Apache=2158934394575.0183.1752111142580; ULV=1752111142581:2:2:2:2158934394575.0183.1752111142580:1752026091599; UOR=,,colab.research.google.com; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9Wh8VWEbVhlygunoAakRqpfd5JpX5KzhUgL.Fon7ehMNeKBRShz2dJLoIp7LxKML1KBLBKnLxKqL1hnLBoMReh5NS02X1hBE; SUB=_2A25Fa2vqDeRhGe5O61UW8SrEzz6IHXVmCeEirDV8PUNbmtAbLVjGkW9NdbwG0ziEoNkbT7xGZReOIlv6dS5U6j7p; ALF=02_1754704058; WBPSESS=DnO9X6brKQZMMQSsb-c8LQFwlAIyXMo8jHhfCxxwgF2bB2EPVvuKwWkeC6o_WBAMxdsJIRS6xqAoY5B-2HUpvRWAvYeRr49GU8l5KL9vk3ZqWc-3KuxxZrBRA1lQesw3vWW5dUsxffgelT0j2tT9nw==',
+}
+# 用户信息设置
+USER_INFO_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "Referer": "https://m.weibo.cn/",
+    "Accept-Language": "zh-CN,zh;q=0.9",
+    "Cookie": "SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9Wh8VWEbVhlygunoAakRqpfd5NHD95QReh5NS02X1hBEWs4DqcjMi--NiK.Xi-2Ri--ciKnRi-zN1h57S0MpShnXentt; _T_WM=20726149999; WEIBOCN_FROM=1110006030; SCF=AoXn-mvGudt26muAxumDMp7jjtJZTA0dFWXk2MvZ3uB6Hq03Y8nY0bfsl63rWBHMllknKSi2l1vXTp-E_syj1cM.; SUB=_2A25Fa2vqDeRhGe5O61UW8SrEzz6IHXVmCeEirDV6PUJbktAbLRLRkW1NdbwG05gqIAgh36eMOnp1SoHAn5vK74xf; SSOLoginState=1752112058; ALF=1754704058; MLOGIN=1; XSRF-TOKEN=614d49; mweibo_short_token=9547d96fa6; M_WEIBOCN_PARAMS=luicode%3D20000174%26uicode%3D20000174"
 }
 ITEM_PIPELINES = {
     'weibo.pipelines.DuplicatesPipeline': 300,
