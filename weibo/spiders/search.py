@@ -631,7 +631,11 @@ class SearchSpider(scrapy.Spider):
                 mid = weibo['id']
                 # 调用微博移动端API获取用户详情JSON（使用mid）
                 user_url = f"https://m.weibo.cn/statuses/show?id={mid}"
-                resp = requests.get(user_url, headers=self.settings.get('DEFAULT_REQUEST_HEADERS'))
+                headers = self.settings.get("USER_INFO_HEADERS") or {}
+                resp = requests.get(
+                          user_url, 
+                          headers=headers
+                          )
                 VERIFIED = {-1:"普通用户",0:"名人",1:"政府",2:"企业",3:"媒体",4:"校园",5:"网站",6:"应用",7:"团体（机构）"}
                 GENDER = {"m":"男","f":"女"}
                 if resp.status_code == 200:
