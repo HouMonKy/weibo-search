@@ -34,10 +34,12 @@ class CsvPipeline(object):
                 writer = csv.writer(f)
                 if is_first_write:
                     header = [
-                        'id', 'bid', 'user_id', '用户昵称', '微博正文', '头条文章url',
-                        '发布位置', '艾特用户', '话题', '转发数', '评论数', '点赞数', '发布时间',
-                        '发布工具', '微博图片url', '微博视频url', 'retweet_id', 'ip', 'user_authentication',
-                        '会员类型', '会员等级'
+                            'id', 'bid', 'user_id', '用户昵称',
+                            '性别', 'user_authentication', '认证类别', '认证身份', '粉丝数', '发帖数',
+                            '微博正文', '头条文章url', '发布位置', '艾特用户', '话题',
+                            '转发数', '评论数', '点赞数', '发布时间', '发布工具',
+                            '微博图片url', '微博视频url', 'retweet_id', 'ip',
+                            '会员类型', '会员等级'
                     ]
                     writer.writerow(header)
 
@@ -46,6 +48,13 @@ class CsvPipeline(object):
                     item['weibo'].get('bid', ''),
                     item['weibo'].get('user_id', ''),
                     item['weibo'].get('screen_name', ''),
+                    # 新增 ↓↓↓↓↓
+                    item['weibo'].get('gender', ''),
+                    item['weibo'].get('verified_type', ''),
+                    item['weibo'].get('verified_reason', ''),
+                    item['weibo'].get('followers_count', ''),
+                    item['weibo'].get('statuses_count', ''),
+                    # 新增 ↑↑↑↑↑
                     item['weibo'].get('text', ''),
                     item['weibo'].get('article_url', ''),
                     item['weibo'].get('location', ''),
@@ -63,7 +72,7 @@ class CsvPipeline(object):
                     item['weibo'].get('user_authentication', ''),
                     item['weibo'].get('vip_type', ''),
                     item['weibo'].get('vip_level', 0)
-                ])
+        ])
         return item
 
 class SQLitePipeline(object):
